@@ -10,4 +10,5 @@
 
 @interface WheelView : UIView
 +(instancetype)  wheel;
+-(void)  startRotating;
 @end

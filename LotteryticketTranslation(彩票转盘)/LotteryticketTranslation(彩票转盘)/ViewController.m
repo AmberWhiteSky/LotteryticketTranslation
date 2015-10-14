@@ -23,6 +23,7 @@
     //加载自定义的xib的view
     WheelView  *wheelView =[WheelView  wheel];
     wheelView.center = CGPointMake(self.view.frame.size.width*0.5, self.view.frame.size.height*0.5);
+    [wheelView   startRotating];
     [self.view  addSubview:wheelView];
 }
 

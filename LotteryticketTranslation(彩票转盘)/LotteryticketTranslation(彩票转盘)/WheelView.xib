@@ -28,6 +28,9 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="centerView" destination="VRE-nU-o4R" id="Sm8-6I-Rvj"/>
+            </connections>
             <point key="canvasLocation" x="477" y="298"/>
         </view>
     </objects>

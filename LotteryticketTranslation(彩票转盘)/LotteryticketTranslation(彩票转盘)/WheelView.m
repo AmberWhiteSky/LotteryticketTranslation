@@ -8,7 +8,15 @@
 
 #import "WheelView.h"
 
+@interface WheelView()
+
+@property (weak, nonatomic) IBOutlet UIImageView *centerView;
+
+@end
+
+
 @implementation WheelView
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -23,4 +31,24 @@
 
      return  [[[NSBundle  mainBundle] loadNibNamed:@"WheelView" owner:nil options:nil] lastObject];
 }
+
+
+//旋转方法
+-(void)  startRotating{
+    
+    CABasicAnimation  *anim =[CABasicAnimation  animation];
+    
+    
+    anim.keyPath =@"transform.rotation";
+    
+    anim.toValue =@(2*M_PI);
+    
+    anim.duration =5;
+    
+    anim.repeatCount=MAXFLOAT;
+    //中间的view 旋转
+    [self.centerView.layer  addAnimation:anim forKey:nil];
+
+}
+
 @end
