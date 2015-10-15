@@ -33,6 +33,25 @@
 }
 
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        //添加十二个按钮
+        for(int  index =0;index<12;index++){
+            UIButton  *btn =[UIButton  buttonWithType:UIButtonTypeCustom];
+            btn.backgroundColor =[UIColor  redColor];
+            [btn setBackgroundImage: [UIImage  imageNamed:@"LuckyRototeSelected"] forState:UIControlStateSelected];
+//            btn.frame =
+            [self.centerView   addSubview:btn];
+        }
+        
+    }
+    return self;
+}
+
+
+
 //旋转方法
 -(void)  startRotating{
     
