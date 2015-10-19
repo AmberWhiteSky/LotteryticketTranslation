@@ -38,10 +38,34 @@
     
     
     self.centerView.userInteractionEnabled =YES;
+    //加载大图片
+    UIImage  *bigimage =[UIImage  imageNamed:@"LuckyAstrology"];
+    
+    
+    //判断屏幕尺寸
+    
+    //屏幕伸缩尺寸
+//    [UIScreen  mainScreen].scale
+    
+    
+    //从大图片中裁剪对应星座的图片
+    CGFloat smallW=bigimage.size.width/12*[UIScreen  mainScreen].scale;
+    
+    CGFloat smallH =bigimage.size.height*[UIScreen  mainScreen].scale;;
+    
+    
+    
     //添加十二个按钮
     for(int  index =0;index<12;index++){
         UIButton  *btn =[UIButton  buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor =[UIColor  colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0  blue:arc4random_uniform(255)/255.0  alpha:1.0];
+//        btn.backgroundColor =[UIColor  colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0  blue:arc4random_uniform(255)/255.0  alpha:1.0];
+        
+        btn.backgroundColor =[UIColor  redColor];
+        
+        CGRect  smallrect =CGRectMake(index*smallW, 0, smallW, smallH);
+        CGImageRef  smallImage =CGImageCreateWithImageInRect(bigimage.CGImage, smallrect);
+        [btn setImage:[UIImage  imageWithCGImage:smallImage] forState:UIControlStateNormal];
+        
         
         [btn setBackgroundImage: [UIImage  imageNamed:@"LuckyRototeSelected"] forState:UIControlStateSelected];
         btn.bounds =CGRectMake(0, 0, 68, 143);
