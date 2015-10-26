@@ -60,11 +60,12 @@
         UIButton  *btn =[UIButton  buttonWithType:UIButtonTypeCustom];
 //        btn.backgroundColor =[UIColor  colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0  blue:arc4random_uniform(255)/255.0  alpha:1.0];
         
-        btn.backgroundColor =[UIColor  redColor];
+//        btn.backgroundColor =[UIColor  redColor];
         
         CGRect  smallrect =CGRectMake(index*smallW, 0, smallW, smallH);
         CGImageRef  smallImage =CGImageCreateWithImageInRect(bigimage.CGImage, smallrect);
         [btn setImage:[UIImage  imageWithCGImage:smallImage] forState:UIControlStateNormal];
+        
         
         
         [btn setBackgroundImage: [UIImage  imageNamed:@"LuckyRototeSelected"] forState:UIControlStateSelected];
@@ -72,6 +73,8 @@
         //设置锚点和位置
         btn.layer.anchorPoint = CGPointMake(0.5, 1);
         btn.layer.position =CGPointMake(self.centerView.frame.size.width*0.5, self.centerView.frame.size.height*0.5);
+        
+        //设置旋转角度 就（绕着锚点旋转）
         CGFloat angle =(30*index)/180.0*M_PI;
         btn.transform =CGAffineTransformMakeRotation(angle);
         
